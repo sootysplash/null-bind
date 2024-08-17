@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "me.sootysplash.bind.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+      "KeyboardInputMixin",
+	  "InputUtilMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
