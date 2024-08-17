@@ -1,20 +1,11 @@
 package me.sootysplash.bind;
 
-import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.client.option.GameOptions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 
-public class TemplateMod implements ModInitializer {
-    public static final Logger LOGGER = LoggerFactory.getLogger("null-bind");
+public class TemplateMod {
 	public static final HashMap<Integer, Long> lastPress = new HashMap<>();
-	@Override
-	public void onInitialize() {
-		LOGGER.info("Null-Bind | Sootysplash was here!");
-	}
 
 	public static Float getSideways(GameOptions settings) {
 		if (settings.leftKey.isPressed() && settings.rightKey.isPressed()) {

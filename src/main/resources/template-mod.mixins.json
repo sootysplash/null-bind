@@ -3,10 +3,13 @@
 	"package": "me.sootysplash.bind.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-      "KeyboardInputMixin",
-	  "InputUtilMixin"
+		"InputUtilMixin",
+		"KeyboardInputMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
-	}
+	},
+	"client": [
+		"InitMixin"
+	]
 }

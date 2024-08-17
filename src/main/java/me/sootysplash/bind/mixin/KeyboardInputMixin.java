@@ -6,6 +6,7 @@ import net.minecraft.client.option.GameOptions;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
@@ -13,10 +14,14 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class KeyboardInputMixin {
 	@Shadow @Final private GameOptions settings;
 
-    @Shadow
-    private static float getMovementMultiplier(boolean positive, boolean negative) {
-        return 0;
-    }
+	@Unique
+	private static float getMovementMultiplier(boolean positive, boolean negative) {
+		if (positive == negative) {
+			return 0.0F;
+		} else {
+			return positive ? 1.0F : -1.0F;
+		}
+	}
 
 	@Redirect(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/input/KeyboardInput;getMovementMultiplier(ZZ)F", ordinal = 0), method = "tick")
 	private float forwardHook(boolean positive, boolean negative) {
