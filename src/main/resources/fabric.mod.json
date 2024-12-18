@@ -1,0 +1,21 @@
+{
+	"schemaVersion": 1,
+	"id": "null-bind",
+	"version": "${version}",
+	"name": "Null Bind",
+	"description": "If you press two opposing movement keys, you'll move in the direction of the key pressed last",
+	"authors": [
+		"Sootysplash"
+	],
+	"license": "Apache-2.0",
+	"icon": "assets/null-bind/icon.png",
+	"environment": "*",
+	"mixins": [
+		"template-mod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.10",
+		"minecraft": "~1.20.1",
+		"java": ">=17"
+	}
+}
